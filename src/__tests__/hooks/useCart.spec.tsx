@@ -126,7 +126,7 @@ describe('useCart Hook', () => {
   });
 
   it('should not be able add a product that does not exist', async () => {
-    const productId = 4;
+    const productId = 41;
 
     apiMock.onGet(`stock/${productId}`).reply(404);
     apiMock.onGet(`products/${productId}`).reply(404);
