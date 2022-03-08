@@ -151,3 +151,104 @@ export function useCart(): CartContextData {
 
   return context;
 }
+
+// Codigo da correção do modulo abaixo
+
+// const addProduct = async (productId: number) => {
+//   try {
+//     // TODO
+//     const updatedCart = [...cart];
+//     const productExist = updatedCart.find(product => product.id === productId);
+
+//     const stock = await api.get(`/stock/${productId}`);
+
+//     const stockAMount = stock.data.amount;
+//     const currentAmount = productExist ? productExist.amount : 0;
+//     const amount = currentAmount + 1;
+
+//     if(amount > stockAMount) {
+//       toast.error('Quantidade solicitada fora de estoque');
+//       return;
+//     }
+    
+
+//     if(productExist) {
+//       productExist.amount = amount;
+//     } else {
+//       const product = await api.get(`/products/${productId}`);
+//       const newProduct = {
+//         ...product.data, 
+//         amount: 1
+//       };
+//       updatedCart.push(newProduct);
+//     }
+
+//     setCart(updatedCart);
+
+//   } catch {
+//     toast.error('Erro na adição do produto');
+//   } 
+// };
+
+// const removeProduct = (productId: number) => {
+//   try {
+//     const updatedCart = [...cart];
+//     const productIndex = updatedCart.findIndex(product => product.id === productId);
+    
+//     if(productIndex >= 0) {
+//       updatedCart.splice(productIndex, 1);
+//       setCart(updatedCart);
+//     } else {
+//       throw Error();
+//     }
+
+//   } catch {
+//     toast.error('Erro na remoção do produto');
+//   }
+// };
+
+// const updateProductAmount = async ({
+//   productId,
+//   amount,
+// }: UpdateProductAmount) => {
+//   try {
+//     if(amount <= 0 ){
+//       return;
+//     }
+
+//     const stock = await api.get(`/stock/${productId}`);
+//     const stockAmount = stock.data.amount;
+
+//     if(amount > stockAmount) {
+//       toast.error('Quantidade solicitada fora de estoque');
+//       return;
+//     }
+
+//     const updatedCart = [...cart];
+//     const productExists = updatedCart.find(product => product.id === productId);
+//     if(productExists) {
+//       productExists.amount = amount;
+//       setCart(updatedCart);
+//     } else {
+//       throw Error();
+//     }
+    
+//   } catch {
+//     toast.error('Erro na alteração de quantidade do produto');
+//   }
+// };
+
+// return (
+//   <CartContext.Provider
+//     value={{ cart, addProduct, removeProduct, updateProductAmount }}
+//   >
+//     {children}
+//   </CartContext.Provider>
+// );
+// }
+
+// export function useCart(): CartContextData {
+// const context = useContext(CartContext);
+
+// return context;
+// }
